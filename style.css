@@ -1,0 +1,116 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(50,50,50);
+}
+canvas {
+  display: block;
+  border: 20px solid darkgreen;
+  width:100%;
+  height:100%;
+}
+
+.TitleHolder{
+  margin: auto;
+  display: block;
+}
+.Title{
+  text-align: center;
+  font-size: 60px;
+  color: lightgreen;
+}
+
+.SortShower{
+  text-align: center;
+  font-size: 30px;
+  color: green;
+  margin-bottom: 3px;
+}
+
+.PageHolder{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.P5Canvas{
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.InputHolder{
+  margin: auto;
+  display: block;
+}
+
+.ButtonHolder{
+  
+  margin: auto;
+  margin-top: 30px;
+  display: flex;
+  justify-content:center;
+}
+
+.Button{
+  background-color: green;
+  height: 80px;
+  width: 300px;
+  color: black;
+  font-size: 20px;
+  border: 10px solid darkgreen;
+  margin: 0 20px;
+}
+
+.SpeedText{
+  text-align: center;
+  font-size: 30px;
+  color: green;
+  margin-bottom: 10px;
+}
+
+.SliderHolder{
+  
+  display: block;
+  margin: auto;
+  width: 600px;
+}
+
+.slider{
+  appearance: none;
+  width:600px;
+  height:25px; 
+  background: green; 
+  outline: none; 
+  transition: opacity .2s;
+  border: 10px solid darkgreen;
+  margin: 0;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: darkgreen;
+  cursor:pointer;
+}
+
+.AlgButtons{
+  display: flex;
+  justify-content: center;
+  height: 400px;
+  flex-direction: column;
+}
+
+.AlgButton{
+  background-color: green;
+  height: 80px;
+  width: 300px;
+  color: black;
+  font-size: 20px;
+  border: 10px solid darkgreen;
+  margin: 30px 0;
+}
+
