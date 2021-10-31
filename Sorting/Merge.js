@@ -6,12 +6,13 @@ class Merge{
     
     //Randomized List
     this.list = list;   
-    
+
+    //The top node of the binary search tree
     this.searchTree = new MergeNode(null, [...list]);
     
-
+    //Can't use typical recursion because the function has to be done in a while loop(the update function)
+    //So use an array that will simulate recusion
     this.mergeRec = [this.searchTree];
-    
     
     //Logs the number of comparison and swaps
     this.comparisons = 0;
@@ -25,33 +26,41 @@ class Merge{
   }
   
   UpdateMerge(){
-    if(this.mergeRec[0].hasValue){
+    //if the top node has it's value then it's sorted
+    if(this.searchTree.hasValue){
       this.sorted = true;
       return;
     }
     
-    
+    //Gets the current node in the array recursion
     let curMergeNode = this.mergeRec[this.mergeRec.length - 1];
     
+    //If the node has it's value that means it's been sorted
     if(curMergeNode.hasValue){
+      //So remove it from the recursion
       this.mergeRec.length -= 1;
       return;
     }
-    
+    //If the left ndoe doesn't have it's value then add it to the array recursion
     if(!curMergeNode.left.hasValue){
       this.mergeRec[this.mergeRec.length] = curMergeNode.left;
       return;
       
     }
+    //If the right node doesn't have it's value then add it to the array recursion
     else if(!curMergeNode.right.hasValue){
       this.mergeRec[this.mergeRec.length] = curMergeNode.right;
       return;
     }
-    //print(curMergeNode)
     
-    curMergeNode.updateMerge();
-    this.comparisons++;
+    //Updates the current merge node
+    //Return true if a comparision was made
+    let madeComparison = curMergeNode.updateMerge();
+    if(madeComparison){
+      this.comparisons++;
+    }
     
+    //Gets the current array data from the tree's top node
     this.list = this.searchTree.GetArrayData();
   }
   

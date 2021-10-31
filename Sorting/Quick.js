@@ -10,7 +10,7 @@ class Quick{
     //The top node of the binary search tree
     this.searchTree = new QuickNode(null, [...list]);
     
-    //Can't use typical recursion because the function has to be done in a while loop
+    //Can't use typical recursion because the function has to be done in a while loop(the update function)
     //So use an array that will simulate recusion
     this.quickRec = [this.searchTree];
     
