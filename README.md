@@ -1,7 +1,7 @@
 # SortingVisualizer
 
 This project was made using javascript and the p5js library 
-This meant that all the sorting algorthms would have to be made in a  while loop that linked to the frame rate
+This means that all the sorting algorthms would have to be made in a while loop that linked to the frame rate
 
 **Merge Sort**
 
