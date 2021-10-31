@@ -7,8 +7,11 @@ class Quick{
     //Randomized List
     this.list = list;   
     
+    //The top node of the binary search tree
     this.searchTree = new QuickNode(null, [...list]);
-  
+    
+    //Can't use typical recursion because the function has to be done in a while loop
+    //So use an array that will simulate recusion
     this.quickRec = [this.searchTree];
     
     
@@ -24,37 +27,49 @@ class Quick{
   }
   
   UpdateQuick(){
+    //Is sorted if the binary search tree top node is sorted
     if(this.searchTree.GetDone()){
       this.sorted = true;
       return;
     }
     
-    
+    //Gets the current node in the array recursion
     let curQuickNode = this.quickRec[this.quickRec.length - 1];
     
+    //if the node has 1 or 0 values in it then it can't be split anymore hence it's sorted
     if(curQuickNode.isBottom){
-      print("int bottom")
+      //Since the node is sorted remove it from the array recursion
       this.quickRec.length -= 1;
       return;
     }
     
+    //If the node hasn't been split into two yet then it needs to be updated
     if(!curQuickNode.hasSplit){
-      curQuickNode.updateQuick();
-      this.comparisons++;
+      //Updates the node, returns true if the update had a comparision
+      let comparisionMade = curQuickNode.updateQuick();
+      if(comparisionMade){
+        this.comparisons++;
+      }
     }
+    //If the left node hasn't been split then it need to be split next
     else if(!curQuickNode.left.hasSplit){
+      //Adds it to the array recursion
       this.quickRec[this.quickRec.length] = curQuickNode.left;
       
     }
+    //If the right node hasn't been split then it need to be split next
     else if(!curQuickNode.right.hasSplit){
+      //Adds it to the array recursion
       this.quickRec[this.quickRec.length] = curQuickNode.right;
     }
+    //If they have both been split that means this node has been sorted
     else{
+      //Removes it fromt the array recursion
       this.quickRec.length -= 1;
     }
     
+    //Gets the current list from the top node
     this.list = this.searchTree.GetArrayData();
-    //print(this.list)
   }
   
   
