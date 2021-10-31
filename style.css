@@ -44,25 +44,7 @@ canvas {
   display: block;
 }
 
-.ButtonHolder{
-  
-  margin: auto;
-  margin-top: 30px;
-  display: flex;
-  justify-content:center;
-}
-
-.Button{
-  background-color: green;
-  height: 80px;
-  width: 300px;
-  color: black;
-  font-size: 20px;
-  border: 10px solid darkgreen;
-  margin: 0 20px;
-}
-
-.SpeedText{
+.SliderText{
   text-align: center;
   font-size: 30px;
   color: green;
