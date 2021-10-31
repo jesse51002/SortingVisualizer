@@ -1,28 +1,34 @@
 class MergeNode{
-  constructor(origin, values){
-    this.origin  = origin;
+  constructor(parent, values){
+    this.parent  = parent;
     
+    //The value it holds
     this.value = [];
+    //Whether the node is sorted
     this.hasValue = false;
     
+    //Loop indexs
     this.mergeIL = 0;
     this.mergeIR = 0;
     this.mergeJ = 0;
     
+    // If there is 1 value that means it has to be sorted
     if(values.length == 1){
       this.value = [...values];
       this.hasValue = true;
-       
+      //it can't have a left or right node since it can't be split
       this.left = null;
       this.right = null;
       return;
     }
     
+    //Gets the middle of the array
     let midPoint = Math.ceil(values.length / 2);
     
+    //Splits the values at the mid point and puts then in the left and right array variable
     this.leftArr = [];
     this.rightArr = [];
-    
+
     for(let j = 0; j < midPoint; j++){
       this.leftArr[j] = values[j];
     }
@@ -30,6 +36,7 @@ class MergeNode{
       this.rightArr[j - midPoint] = values[j];
     }
     
+    //Creates the left and right node for these values
     this.left = new MergeNode(this, this.leftArr);
     this.right = new MergeNode(this, this.rightArr);
   }
